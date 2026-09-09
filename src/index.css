@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+/* Navbar link par click karne par page smoothly scroll karega */
+html {
+  scroll-behavior: smooth;
+}
