@@ -47,11 +47,13 @@ function Projects() {
 
               {/* Baad mein actual live URL add karenge */}
               <a
-                href="#"
-                className="border border-gray-600 px-4 py-2 rounded-lg"
-              >
-                Live Demo
-              </a>
+  href="https://inventory-indol-five.vercel.app/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-blue-600 px-4 py-2 rounded-lg"
+>
+  Live Demo
+</a>
 
             </div>
           </div>
@@ -118,12 +120,14 @@ function Projects() {
                 GitHub
               </a>
 
-              <a
-                href="#"
-                className="border border-gray-600 px-4 py-2 rounded-lg"
-              >
-                Live Demo
-              </a>
+             <a
+  href="https://weather-app-ten-umber-25.vercel.app/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-blue-600 px-4 py-2 rounded-lg"
+>
+  Live Demo
+</a>
 
             </div>
           </div>

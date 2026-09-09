@@ -44,25 +44,34 @@ function Hero() {
         </p>
 
         {/* Buttons ko ek row mein rakhne ke liye flex */}
-        <div className="flex justify-center gap-4">
+        <div className="flex justify-center gap-4 flex-wrap">
 
-          {/* Click karne par Projects section par jayega */}
-          <a
-            href="#projects"
-            className="bg-blue-600 px-6 py-3 rounded-lg hover:bg-blue-700 transition"
-          >
-            View Projects
-          </a>
+  {/* Projects section par le jayega */}
+  <a
+    href="#projects"
+    className="bg-blue-600 px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+  >
+    View Projects
+  </a>
 
-          {/* Click karne par Contact section par jayega */}
-          <a
-            href="#contact"
-            className="border border-gray-600 px-6 py-3 rounded-lg hover:bg-gray-800 transition"
-          >
-            Contact Me
-          </a>
+  {/* Contact section par le jayega */}
+  <a
+    href="#contact"
+    className="border border-gray-600 px-6 py-3 rounded-lg hover:bg-gray-800 transition"
+  >
+    Contact Me
+  </a>
 
-        </div>
+  {/* public folder ki resume.pdf download karega */}
+  <a
+    href="/resume.pdf"
+    download
+    className="border border-gray-600 px-6 py-3 rounded-lg hover:bg-gray-800 transition"
+  >
+    Download Resume
+  </a>
+
+</div>
 
       </div>
     </section>
