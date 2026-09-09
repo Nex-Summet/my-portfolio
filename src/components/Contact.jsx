@@ -1,8 +1,42 @@
+import { useState } from "react"
+
 function Contact() {
+  // Form submit hone ke baad status dikhane ke liye
+  const [status, setStatus] = useState("")
+
+  // Form submit handle karega
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+    setStatus("Sending...")
+
+    const formData = new FormData(event.target)
+
+    try {
+      const response = await fetch("https://formspree.io/f/xeaqvzdp", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      })
+
+      if (response.ok) {
+        setStatus("Message sent successfully! ✅")
+        event.target.reset()
+      } else {
+        setStatus("Something went wrong. Please try again.")
+      }
+    } catch (error) {
+      setStatus("Something went wrong. Please try again.")
+    }
+  }
+
   return (
     <section id="contact" className="px-6 py-20">
       <div className="max-w-4xl mx-auto">
 
+        {/* Section heading */}
         <h2 className="text-4xl font-bold text-center mb-4">
           Contact Me
         </h2>
@@ -11,27 +45,36 @@ function Contact() {
           Feel free to contact me for job opportunities or projects.
         </p>
 
-        {/* Form UI ban raha hai; abhi backend connected nahi hai */}
-        <form className="bg-gray-900 p-8 rounded-xl space-y-6">
+        {/* Contact form */}
+        <form
+          onSubmit={handleSubmit}
+          className="bg-gray-900 p-8 rounded-xl space-y-6"
+        >
 
-          {/* Name input */}
+          {/* Name */}
           <input
             type="text"
+            name="name"
             placeholder="Your Name"
+            required
             className="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 outline-none focus:border-blue-500"
           />
 
-          {/* Email input */}
+          {/* Email */}
           <input
             type="email"
+            name="email"
             placeholder="Your Email"
+            required
             className="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 outline-none focus:border-blue-500"
           />
 
-          {/* Message input */}
+          {/* Message */}
           <textarea
+            name="message"
             placeholder="Your Message"
             rows="5"
+            required
             className="w-full bg-black border border-gray-700 rounded-lg px-4 py-3 outline-none focus:border-blue-500"
           ></textarea>
 
@@ -42,6 +85,13 @@ function Contact() {
           >
             Send Message
           </button>
+
+          {/* Success/error message */}
+          {status && (
+            <p className="text-gray-300">
+              {status}
+            </p>
+          )}
 
         </form>
 
